@@ -1,0 +1,38 @@
+{
+  "name": "@rubik/root-config",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 8000",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-ts-important-stuff": "^1.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
+    "jest-cli": "^27.0.6",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "serve": "^12.0.0",
+    "ts-config-single-spa": "^3.0.0",
+    "typescript": "^4.3.5",
+    "vite-plugin-ejs": "^1.6.4",
+    "vite-plugin-externalize-dependencies": "^0.10.0",
+    "vite-plugin-single-spa": "^0.1.0"
+  },
+  "dependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/systemjs": "^6.1.1"
+  },
+  "types": "dist/rubik-root-config.d.ts"
+}
