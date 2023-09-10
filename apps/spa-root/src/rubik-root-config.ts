@@ -1,20 +1,43 @@
-import { registerApplication, start, LifeCycles } from "single-spa";
+import { registerApplication, start } from "single-spa";
+import {
+  constructApplications,
+  constructLayoutEngine,
+  constructRoutes,
+} from "single-spa-layout";
+import { buildAppRouting, getTemplate } from "./template.ts";
 
-registerApplication({
-  name: "@single-spa/welcome",
-  app: () =>
-    System.import<LifeCycles>(
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-    ),
-  activeWhen: ["/root"],
-});
+const singleSpaConfigResponse = await fetch(
+  "http://localhost:3000/single-spa-routes"
+);
+if (singleSpaConfigResponse.ok) {
+  const singleSpaConfig = (await singleSpaConfigResponse.json()) as Record<
+    string,
+    { uri: string; routes: string[] }
+  >;
+  const routes = getTemplate(buildAppRouting(singleSpaConfig));
 
-registerApplication({
-  name: "@rubik/app1",
-  app: () => System.import<LifeCycles>("@rubik/app1"),
-  activeWhen: ["/app1"],
-});
+  const singleSpaRoutes = constructRoutes(routes);
 
-start({
-  urlRerouteOnly: true,
-});
+  const applications = constructApplications({
+    routes: singleSpaRoutes,
+    loadApp({ name }) {
+      if (singleSpaConfig[name]) {
+        return System.import(singleSpaConfig[name].uri);
+      }
+      return System.import(name);
+    },
+  });
+
+  const layoutEngine = constructLayoutEngine({
+    routes: singleSpaRoutes,
+    applications,
+  });
+
+  applications.forEach(registerApplication);
+
+  layoutEngine.activate();
+
+  start({
+    urlRerouteOnly: true,
+  });
+}

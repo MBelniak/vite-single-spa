@@ -1,12 +1,12 @@
 {
-  "name": "@rubik/app1",
+  "name": "@rubik/app2",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 8001",
+    "dev": "vite --port 8004",
     "build": "tsc && vite build",
     "serve": "run-p watch preview",
     "watch": "tsc && vite build --watch",
-    "preview": "vite preview --port 8001",
+    "preview": "vite preview --port 8004",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write .",
     "check-format": "prettier --check ."
@@ -30,5 +30,5 @@
     "@types/systemjs": "^6.1.1",
     "single-spa": "^5.9.3"
   },
-  "types": "dist/rubik-app1.d.ts"
+  "types": "dist/rubik-app2.d.ts"
 }

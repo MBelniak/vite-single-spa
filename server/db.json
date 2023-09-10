@@ -1,0 +1,23 @@
+{
+  "single-spa-routes": {
+    "single-spa": {
+      "uri": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
+      "routes": [
+        "root",
+        "welcome"
+      ]
+    },
+    "@rubik/app1": {
+      "uri": "http://localhost:8001/assets/rubik-app1.js",
+      "routes": [
+        "app1"
+      ]
+    },
+    "@rubik/app2": {
+      "uri": "http://localhost:8004/assets/rubik-app2.js",
+      "routes": [
+        "app2"
+      ]
+    }
+  }
+}

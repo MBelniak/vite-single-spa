@@ -26,8 +26,8 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.9.5/esm/single-spa.min.js",
-        "@rubik/app1": "http://localhost:8001/assets/rubik-app1.js"
+        "@rubik/nav": "http://localhost:8002/assets/rubik-nav.js",
+        "@rubik/footer": "http://localhost:8003/assets/rubik-footer.js"
       }
     }
   </script>
@@ -47,6 +47,10 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
+
+  <template id="single-spa-layout">
+
+  </template>
 </head>
 <body>
   <noscript>
@@ -57,3 +61,4 @@
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
 </html>
+
