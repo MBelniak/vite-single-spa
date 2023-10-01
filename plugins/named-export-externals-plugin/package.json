@@ -1,0 +1,12 @@
+{
+  "name": "@rubik/named-export-externals-plugin",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "types": "src",
+  "main": "dist/index.js"
+}

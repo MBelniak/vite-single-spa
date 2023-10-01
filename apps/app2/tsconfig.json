@@ -9,6 +9,6 @@
   "files": [
     "src/rubik-app2.ts"
   ],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "vite.config.ts"],
   "exclude": ["src/**/*.test*"]
 }

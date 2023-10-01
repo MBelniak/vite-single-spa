@@ -2,11 +2,12 @@
   "extends": "ts-config-single-spa",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "declarationDir": "dist"
+    "esModuleInterop": true,
+    "declarationDir": "dist",
   },
   "files": [
     "src/rubik-footer.ts"
   ],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "vite.config.ts"],
   "exclude": ["src/**/*.test*"]
 }
